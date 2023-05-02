@@ -42,17 +42,17 @@ namespace ExceptionHandlingExercise
                     numbers.Add(number);
                 }
                 catch (Exception ex)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                {             
                     Console.WriteLine($"ERROR: unable to Parse '{character}'");
                 }
 
             }
-            // Now create a try catch
-            Console.WriteLine("Welcome to the Word Letter Game!");
 
-
-            Console.Write("Enter a letter: ");
+            Console.WriteLine("\n" +
+                "\n===============================" +
+                "\n" +
+                "Welcome to the Word Number Game!");
+            Console.Write("Try to find a number I am thinking of: ");
             var guess = Console.ReadLine()[0];
 
 
@@ -62,16 +62,33 @@ namespace ExceptionHandlingExercise
                 if (guess == character)
                 {
                     found = true;
+                    
+                    Console.ResetColor();
+                    int[] notes = { 440, 494, 554, 659, 740 };
+                    int[] durations = { 200, 200, 200, 400, 400 };
+                    for (int i = 0; i < notes.Length; i++)
+                    {
+                        Console.Beep(notes[i], durations[i]);
+                    }
                 }
             }
 
             if (found)
             {
-                Console.WriteLine("Congratulations, you guessed correctly!");
+                Console.WriteLine("\n" + "\n" + "Congratulations, you guessed correctly!");
+
             }
             else
             {
-                Console.WriteLine("Sorry, that guess is incorrect.");
+                Console.WriteLine("\n" + "\n" + "Sorry, that guess is incorrect.");
+                int[] notes = { 330, 277, 220 };
+                int[] durations = { 150, 200, 250 };
+
+                for (int i = 0; i < notes.Length; i++)
+                {
+                    Console.Beep(notes[i], durations[i]);
+                }
+                Console.ForegroundColor = ConsoleColor.Red;
             }
 
 
